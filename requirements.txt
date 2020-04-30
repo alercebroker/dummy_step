@@ -1,0 +1,1 @@
+-e git+https://git@github.com/alercebroker/APF@feature/flush_per_message#egg=APF

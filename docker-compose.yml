@@ -1,0 +1,23 @@
+version: '3'
+services:
+  rate_producer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # restart: 'always'
+    volumes:
+      - ".:/app"
+      - "../test_pipeline/test_data/tests/ztf_sample:/app/tests"
+    network_mode: host
+    environment:
+      - AVRO_PATH=/app/tests
+      - CONSUMER_SERVER=
+      - CONSUMER_GROUP_ID=
+      - CONSUMER_TOPICS=
+      - PRODUCER_TOPIC=dummy
+      - PRODUCER_SERVER=localhost:9092
+      - ES_PREFIX=ztf_pipeline
+      - ES_NETWORK_HOST=localhost
+      - ES_NETWORK_PORT=9200
+      - STEP_NAME=dummy
+
