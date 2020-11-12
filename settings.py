@@ -3,29 +3,15 @@
 ##################################################
 
 import os
-# Elasticsearch Metrics Consfiguration
-ES_CONFIG = {
-    "INDEX_PREFIX": os.environ["ES_PREFIX"],
-    "host": os.environ["ES_NETWORK_HOST"],
-    "port": os.environ["ES_NETWORK_PORT"]
-}
-# Other parameters that can be passed are defined here
-# https://elasticsearch-py.readthedocs.io/en/master/api.html#elasticsearch.Elasticsearch
 
 # Consumer configuration
 # Each consumer has different parameters and can be found in the documentation-
 CONSUMER_CONFIG = {
-    # "DIRECTORY_PATH": os.getenv("AVRO_PATH"),
     "PARAMS": {
         "bootstrap.servers": os.environ["CONSUMER_SERVER"],
         "group.id": os.environ["CONSUMER_GROUP_ID"]
     },
     "TOPICS": os.environ["CONSUMER_TOPICS"].strip().split(",")
-}
-
-# Database configuration
-# Depending on the database backend the parameters can change
-DB_CONFIG = {
 }
 
 CANDIDATE_SCHEMA = {
@@ -438,9 +424,5 @@ PRODUCER_CONFIG = {
 
 # Step Configuration
 STEP_CONFIG = {
-    "DB_CONFIG": DB_CONFIG,
-    #"ES_CONFIG": ES_CONFIG,  # Enables metrics for step
     "PRODUCER_CONFIG": PRODUCER_CONFIG,
-    # Number of process for multiprocess script
-    "COMMIT": False,  # Disables commit, useful to debug KafkaConsumer
 }
