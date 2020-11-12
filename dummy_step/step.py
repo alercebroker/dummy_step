@@ -21,4 +21,5 @@ class DummyStep(GenericStep):
         self.producer = KafkaProducer(self.config["PRODUCER_CONFIG"])
 
     def execute(self,message):
+        self.logger.debug(message["alertId"])
         self.producer.produce(message)
