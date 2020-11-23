@@ -1,1 +1,1 @@
--e git+https://git@github.com/alercebroker/APF@develop#egg=APF
+-e git+https://git@github.com/alercebroker/APF@feature/avro_simulator#egg=APF
